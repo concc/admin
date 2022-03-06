@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <annotationProcessing>
+      <profile default="true" name="Default" enabled="true" />
+      <profile name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="admin-app" />
+        <module name="admin-client" />
+        <module name="admin-domain" />
+        <module name="admin-adapter" />
+        <module name="admin-start" />
+        <module name="admin-infrastructure" />
+      </profile>
+    </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="admin" target="1.8" />
+      <module name="admin-adapter" target="1.8" />
+      <module name="admin-app" target="1.8" />
+      <module name="admin-client" target="1.8" />
+      <module name="admin-domain" target="1.8" />
+      <module name="admin-infrastructure" target="1.8" />
+      <module name="admin-start" target="1.8" />
+    </bytecodeTargetLevel>
+  </component>
+</project>
