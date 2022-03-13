@@ -1,7 +1,6 @@
 package cn.edu.hbuas.admin.web;
 
 import cn.edu.hbuas.admin.api.IUserService;
-import cn.edu.hbuas.admin.dto.UserGetQry;
 import cn.edu.hbuas.admin.dto.clientobject.UserCO;
 import com.alibaba.cola.dto.SingleResponse;
 import org.springframework.web.bind.annotation.*;

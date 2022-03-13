@@ -21,6 +21,7 @@ public class MyBatisConfig {
         final MybatisSqlSessionFactoryBean sessionFactory = new MybatisSqlSessionFactoryBean();
         sessionFactory.setDataSource(dataSource);
         sessionFactory.setMapperLocations(new PathMatchingResourcePatternResolver().getResources("classpath*:mapper/system/*.xml"));
+        sessionFactory.setTypeAliasesPackage("cn.edu.hbuas.admin.gatewayimpl.database.dataobject");
         return sessionFactory.getObject();
     }
 }

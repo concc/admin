@@ -1,15 +1,19 @@
 package cn.edu.hbuas.admin.dto.clientobject;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import lombok.Data;
+
+import java.util.Date;
 
 @Data
 public class UserCO {
 
-    private String userId;
+    public Long userId;
 
-    private String userName;
+    public String userName;
 
-    private String createTime;
+    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss")
+    public Date createTime;
 
-    private String delFlag;
+    public String delFlag;
 }
