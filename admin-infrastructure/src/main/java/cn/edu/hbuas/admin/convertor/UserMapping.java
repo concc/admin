@@ -14,4 +14,5 @@ public interface UserMapping {
      * userDo 转化为 UserCO
      */
     UserCO UserDoToUserCo(UserDO userDo);
+
 }

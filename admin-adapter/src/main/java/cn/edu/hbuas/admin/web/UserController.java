@@ -3,7 +3,6 @@ package cn.edu.hbuas.admin.web;
 import cn.edu.hbuas.admin.api.IUserService;
 import cn.edu.hbuas.admin.dto.*;
 import cn.edu.hbuas.admin.dto.clientobject.UserCO;
-import com.alibaba.cola.dto.MultiResponse;
 import com.alibaba.cola.dto.PageResponse;
 import com.alibaba.cola.dto.Response;
 import com.alibaba.cola.dto.SingleResponse;
@@ -28,8 +27,8 @@ public class UserController {
     }
 
     @GetMapping(value = "/user/{id}")
-    public SingleResponse<UserCO> getUserById(@PathVariable String id) {
-        UserGetSingleQry userGetSingleQry = new UserGetSingleQry();
+    public SingleResponse<UserCO> getUserById(@PathVariable Long id) {
+        UserGetSingleQry userGetSingleQry = new UserGetSingleQry(id);
         return userService.getUserById(userGetSingleQry);
     }
 

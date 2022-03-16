@@ -1,7 +1,9 @@
 package cn.edu.hbuas.admin.service;
 
 import cn.edu.hbuas.admin.api.IUserService;
+import cn.edu.hbuas.admin.commond.UserAddCmdExe;
 import cn.edu.hbuas.admin.commond.query.UserGetQryExe;
+import cn.edu.hbuas.admin.commond.query.UserGetSingleQryExe;
 import cn.edu.hbuas.admin.dto.*;
 import cn.edu.hbuas.admin.dto.clientobject.UserCO;
 import com.alibaba.cola.catchlog.CatchAndLog;
@@ -23,6 +25,12 @@ public class UserServiceImpl implements IUserService {
     @Resource
     private UserGetQryExe userGetQryExe;
 
+    @Resource
+    private UserGetSingleQryExe userGetSingleQryExe;
+
+    @Resource
+    private UserAddCmdExe userAddCmdExe;
+
     @Override
     public PageResponse<UserCO> listUser(UserGetQry userGetQry) {
         return userGetQryExe.execute(userGetQry);
@@ -30,12 +38,12 @@ public class UserServiceImpl implements IUserService {
 
     @Override
     public SingleResponse<UserCO> getUserById(UserGetSingleQry userGetSingleQry) {
-        return null;
+        return userGetSingleQryExe.execute(userGetSingleQry);
     }
 
     @Override
-    public Response addUser(UserAddCmd cmd) {
-        return null;
+    public Response addUser(UserAddCmd userAddCmd) {
+        return userAddCmdExe.execute(userAddCmd);
     }
 
     @Override
