@@ -2,8 +2,7 @@ package cn.edu.hbuas.admin.api;
 
 
 import cn.edu.hbuas.admin.dto.*;
-import cn.edu.hbuas.admin.dto.clientobject.UserCO;
-import com.alibaba.cola.dto.MultiResponse;
+import cn.edu.hbuas.admin.dto.clientobject.UserCo;
 import com.alibaba.cola.dto.PageResponse;
 import com.alibaba.cola.dto.Response;
 import com.alibaba.cola.dto.SingleResponse;
@@ -18,12 +17,12 @@ public interface IUserService {
     /**
      *  查询用户列表
      */
-    PageResponse<UserCO> listUser(UserGetQry userGetQry);
+    PageResponse<UserCo> listUser(UserGetQry userGetQry);
 
     /**
      *  根据ID查询用户
      */
-    SingleResponse<UserCO> getUserById(UserGetSingleQry userGetSingleQry);
+    SingleResponse<UserCo> getUserById(UserGetSingleQry userGetSingleQry);
 
     /**
      *  添加用户

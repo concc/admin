@@ -6,7 +6,7 @@ import lombok.Data;
 import java.util.Date;
 
 @Data
-public class UserCO {
+public class UserCo {
 
     public Long userId;
 

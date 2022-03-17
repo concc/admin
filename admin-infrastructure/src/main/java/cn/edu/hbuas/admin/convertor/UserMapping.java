@@ -1,6 +1,6 @@
 package cn.edu.hbuas.admin.convertor;
 
-import cn.edu.hbuas.admin.dto.clientobject.UserCO;
+import cn.edu.hbuas.admin.dto.clientobject.UserCo;
 import cn.edu.hbuas.admin.gatewayimpl.database.dataobject.UserDO;
 import org.mapstruct.Mapper;
 import org.mapstruct.factory.Mappers;
@@ -12,7 +12,9 @@ public interface UserMapping {
 
     /**
      * userDo 转化为 UserCO
+     * @param userDo 数据库对象
+     * @return userCo
      */
-    UserCO UserDoToUserCo(UserDO userDo);
+    UserCo userDoToUserCo(UserDO userDo);
 
 }

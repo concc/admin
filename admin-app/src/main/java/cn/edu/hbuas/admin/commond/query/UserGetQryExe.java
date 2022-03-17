@@ -2,7 +2,8 @@ package cn.edu.hbuas.admin.commond.query;
 
 import cn.edu.hbuas.admin.convertor.UserMapping;
 import cn.edu.hbuas.admin.dto.UserGetQry;
-import cn.edu.hbuas.admin.dto.clientobject.UserCO;
+import cn.edu.hbuas.admin.dto.clientobject.UserCo;
+import cn.edu.hbuas.admin.dto.clientobject.UserCo;
 import cn.edu.hbuas.admin.gatewayimpl.database.UserMapper;
 import cn.edu.hbuas.admin.gatewayimpl.database.dataobject.UserDO;
 import com.alibaba.cola.dto.PageResponse;
@@ -16,6 +17,7 @@ import org.springframework.stereotype.Component;
 import javax.annotation.Resource;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 @Component
 public class UserGetQryExe {
@@ -26,11 +28,11 @@ public class UserGetQryExe {
     /**
     *  条件检索
     */
-    public PageResponse<UserCO> execute(UserGetQry qry) {
+    public PageResponse<UserCo> execute(UserGetQry qry) {
 
         QueryWrapper<UserDO> userQueryWrapper = new QueryWrapper<>();
 
-        boolean timeCondition = null != qry.getBeginTime() && null != qry.getEndTime();
+        boolean timeCondition = Objects.nonNull(qry.getBeginTime()) && Objects.nonNull(qry.getEndTime());
         boolean nickNameCondition =
                 StringUtils.isNotEmpty(qry.getNickName()) && StringUtils.isNotBlank(qry.getNickName());
 
@@ -42,10 +44,10 @@ public class UserGetQryExe {
         Page<UserDO> userPage = userMapper.selectPage(new Page<>(qry.getPageIndex(), qry.getPageSize()), queryWrapper);
 
         List<UserDO> records = userPage.getRecords();
-        ArrayList<UserCO> result = Lists.newArrayList();
+        ArrayList<UserCo> result = Lists.newArrayList();
         records.forEach(userDO -> {
-            UserCO userCO = UserMapping.INSTANCE.UserDoToUserCo(userDO);
-            result.add(userCO);
+            UserCo userCo = UserMapping.INSTANCE.userDoToUserCo(userDO);
+            result.add(userCo);
         });
         return PageResponse.of(result, qry.getPageSize(), qry.getPageSize(), qry.getPageIndex());
     }

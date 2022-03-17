@@ -2,7 +2,7 @@ package cn.edu.hbuas.admin.web;
 
 import cn.edu.hbuas.admin.api.IUserService;
 import cn.edu.hbuas.admin.dto.*;
-import cn.edu.hbuas.admin.dto.clientobject.UserCO;
+import cn.edu.hbuas.admin.dto.clientobject.UserCo;
 import com.alibaba.cola.dto.PageResponse;
 import com.alibaba.cola.dto.Response;
 import com.alibaba.cola.dto.SingleResponse;
@@ -22,12 +22,12 @@ public class UserController {
 
 
     @GetMapping(value = "/user")
-    public PageResponse<UserCO> list(@RequestBody UserGetQry userGetQry) {
+    public PageResponse<UserCo> list(@RequestBody UserGetQry userGetQry) {
         return userService.listUser(userGetQry);
     }
 
     @GetMapping(value = "/user/{id}")
-    public SingleResponse<UserCO> getUserById(@PathVariable Long id) {
+    public SingleResponse<UserCo> getUserById(@PathVariable Long id) {
         UserGetSingleQry userGetSingleQry = new UserGetSingleQry(id);
         return userService.getUserById(userGetSingleQry);
     }
